@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>reviewr kyte0017</title>
+</head>
+
+<body>
+    <header class="bar bar-nav">
+        <h1 class="title">Reviewr</h1>
+        <a class="icon icon-compose pull-right" href="#reviewModal" id="clearModal"></a>
+    </header>
+    <div class="content">
+        <ul class="table-view" id="content-list">
+            <!--   <li class="content-padded"> <span class="name"><a href="#reviewModal">Picture 1</a></span>
+                <a class="navigate-right pull-right" href="#deleteModal"> <span class="rating">5 Stars</span> </a>
+            </li>-->
+            <!--            <li class="table-view-cell media">
+                <a class="navigate-right" href="#deleteModal"> 
+                   <img class="media-object pull-left" src="http://placehold.it/42x42">
+                    <div class="media-body"> Item 1
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+    <!--******************ADD MODAL*********************-->
+    <div id="reviewModal" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#reviewModal"></a>
+            <h1 class="title">Add Review</h1> </header>
+        <div class="content">
+            <div class="content-padded">
+                <!-- <div class="content-padded">-->
+                <form class="input-group">
+                    <div class="input-row">
+                        <label>Item</label>
+                        <input type="text" placeholder="Item" id="itemName" /> </div>
+                    <div class="input-row">
+                        <label>Rating</label>
+                       <!-- <input type="text" placeholder="stars" id="starRating" /> --> 
+                       <div class="stars"> 
+                    <span class="star">&nbsp;</span> 
+                    <span class="star">&nbsp;</span> 
+                    <span class="star">&nbsp;</span> 
+                    <span class="star">&nbsp;</span> 
+                    <span class="star">&nbsp;</span> 
+                    </div>
+                       </div>
+                </form>
+                <p class="content-padded">
+                    <a class="btn btn-positive btn-block" id="takePicture"> <span class="icon icon-play"></span> Take Picture </a>
+                    <a href="#reviewModal" class="btn btn-block"> <span class="icon icon-close"></span> Cancel </a>
+                    <a href="#reviewModal" class="btn btn-primary btn-block" id="saveBtn"> <span class="icon icon-check"></span> Save </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--******************DELETE MODAL*********************-->
+    <div id="deleteModal" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#deleteModal"></a>
+            <h1 class="title">Delete Review</h1> </header>
+        <div class="content">
+            <!-- <div class="content-padded">-->
+            <!-- Display Image-->
+            <div id="imgDisplay">
+                <img src="" id="myImage" alt="">
+            </div>
+            <form class="input-group">
+                <div class="input-row">
+                    <label>Item</label>
+                    <input type="text" placeholder="Item" id="itemNameDelete" /> </div>
+                <div class="input-row">
+                    <label>Rating</label>
+              <!--  **********We have to get the raw html from the form***********-->
+                   <!-- <input type="text" placeholder="stars" id="starRatingDelete" />--> </div>
+            </form>
+            <p class="content-padded">
+                <!-- List Item of rating-->
+                <a href="#deleteModal" class="btn btn-block"> <span class="icon icon-close"></span> Cancel </a>
+                <a href="#deleteModal" class="btn btn-negative btn-block" id="deleteBtn"> <span class="icon icon-close"></span> Delete </a>
+            </p>
+        </div>
+    </div>
+    <script type="application/javascript" src="js/ratchet.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
