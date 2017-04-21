@@ -66,6 +66,7 @@ var app = {
                 , targetWidth: 300
                 , targetHeight: 300
                 , saveToPhotoAlbum: true
+                , allowEdit: true
             });
 
             function onSuccess(imageURI) {
